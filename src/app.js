@@ -1,12 +1,12 @@
-import bodyParser from 'body-parser';
-import cors from 'cors';
-import express from 'express';
-import helmet from 'helmet';
+const bodyParser = require('body-parser');
+const cors = require('cors');
+const express = require('express');
+const helmet = require('helmet');
 
-import { default as router } from './router'
-import { errorHandler } from './middleware'
+// const router = require('./router');
+// const { errorHandler } = require('./middleware');
 
-export default () => {
+module.exports = () => {
     const app = express();
 
     app.use(cors());
@@ -14,9 +14,9 @@ export default () => {
     app.use(bodyParser.json())
 
     app.get('/', (req, res) => res.send("welcome to the finance site"))
-    app.use('/api', router())
+    // app.use('/api', router())
 
-    app.use(errorHandler())
+    // app.use(errorHandler())
 
     return app;
 }
