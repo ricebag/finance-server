@@ -4,7 +4,7 @@ const express = require('express');
 const helmet = require('helmet');
 
 // const router = require('./router');
-// const { errorHandler } = require('./middleware');
+const { errorHandler } = require('./middleware');
 
 module.exports = () => {
     const app = express();
@@ -16,7 +16,7 @@ module.exports = () => {
     app.get('/', (req, res) => res.send("welcome to the finance site"))
     // app.use('/api', router())
 
-    // app.use(errorHandler())
+    app.use(errorHandler())
 
     return app;
 }
