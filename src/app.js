@@ -3,7 +3,7 @@ const cors = require('cors');
 const express = require('express');
 const helmet = require('helmet');
 
-// const router = require('./router');
+const router = require('./router');
 const { errorHandler } = require('./middleware');
 
 module.exports = () => {
@@ -14,7 +14,7 @@ module.exports = () => {
     app.use(bodyParser.json())
 
     app.get('/', (req, res) => res.send("welcome to the finance site"))
-    // app.use('/api', router())
+    app.use('/api', router())
 
     app.use(errorHandler())
 
